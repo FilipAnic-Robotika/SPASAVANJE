@@ -137,7 +137,8 @@ class RobotLine : public Robot {
 
     /** Stores bitmaps in mrm-led8x8a.
     */
-    void pratiZid();
+    void pratiLiniju();
+    void pratiLinijuBrzo();
 
 
 
