@@ -4,20 +4,17 @@
 
 void RobotLine::radionica()
 {
+if(setup()){
+  armOpen();
+}
 pratiLinijuBrzo();
-if(front() < 100){
 
-go((-50), 50);
+if (leftFront(3) < 200){
+
+  go((-50), 50);
   delayMs(1000);
-  go(50, 50);
-  delayMs(2000);
-  go(50, (-50));
-  delayMs(1000);
-  go(50, 50);
-  delayMs(2000);
-  go(50, (-50));
-  delayMs(1000);
-  go(50, 50);
-  delayMs(2000);
+  armClose();
+  stop();
+  end();
 }
 }
