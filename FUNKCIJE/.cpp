@@ -1416,6 +1416,9 @@ else if(line(1)){
 else if(line(4)){
   go(70, 70);
 }
+else{
+  go(60, 90);
+}
 }
 
 void RobotLine::pratiLinijuBrzo(){
@@ -1448,4 +1451,50 @@ else if(line(1)){
 else if(line(4)){
   go(100, 100);
 }
+else{
+  go(70, 100);
+}
+}
+
+void RobotLine::pratiDesniZid(){
+if(setup()){
+  armOpen();
+}
+
+if(frontRight()>100){
+go(60, 40);
+
+}
+else{
+go(40, 60);
+}
+}
+
+void RobotLine::pratiLjeviZid()
+{
+if(setup()){
+  armOpen();
+}
+
+if(frontLeft()>100){
+go(40, 60);
+
+}
+else{
+go(60, 40);
+}
+}
+
+void RobotLine::pratiSve(){
+if(setup()){
+  armOpen();
+  }
+if(front()<200){
+go(-50, 50);
+delayMs(1500);
+}
+  pratiDesniZid();
+
+
+
 }
