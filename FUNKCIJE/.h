@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 #include <mrm-action.h>
 #include <mrm-robot.h>
 
@@ -139,6 +139,9 @@ class RobotLine : public Robot {
     */
     void pratiLiniju();
     void pratiLinijuBrzo();
+    void pratiDesniZid();
+    void pratiLjeviZid();
+    void pratiSve();
 
 
 
@@ -224,7 +227,8 @@ class RobotLine : public Robot {
     void go(int16_t leftSpeed, int16_t rightSpeed);
 
     /** Left side - rear sensor distance.
-      @param sampleCount - Number or readings. 40% of the raeadings, with extreme values, will be discarded and the
+      @param sampleCount - Number or readings. 40% of the raeadings, with extreme values, will be discarded and the #pragma once
+ #include "helper.h"
             rest will be averaged. Keeps returning 0 till all the sample is read.
             If sampleCount is 0, it will not wait but will just return the last value.
       @param sigmaCount - Values outiside sigmaCount sigmas will be filtered out. 1 sigma will leave 68% of the values, 2 sigma 95%, 3 sigma 99.7%.
