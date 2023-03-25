@@ -1388,33 +1388,33 @@ bool RobotLine::wallRight() {
 
 void RobotLine::pratiLiniju(){
 if(line(8)){
-  go(-70,70);
+  go(-60,70);
 }
 else if(line(0)){
-  go(70,-70);
+  go(70,-60);
 }
 else if(line(2)){
-  go(70,10);
+  go(70,0);
 }
 else if(line(6)){
-  go(10,70);
+  go(0,70);
 }
 else if(line(5)){
-  go(20,70);
+  go(10,70);
 }
 else if(line(3)){
-  go(70,20);
+  go(70,10);
 }
 
 else if(line(7)){
-  go(-10,70);
+  go(-20,70);
 }
 else if(line(1)){
-  go(70,-10);
+  go(70,-20);
 }
 
 else if(line(4)){
-  go(70, 70);
+  go(50, 50);
 }
 else{
   go(70, 90);
