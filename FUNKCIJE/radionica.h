@@ -12,6 +12,7 @@ void RobotLine::radionica() {
     go(-90, 90);
     delayMs(500);
     t = t + 1;
+
   }
   if (t == 1 and line(6) and line(2)) {
     go(40, 40);
@@ -24,11 +25,13 @@ void RobotLine::radionica() {
     go(50, -50);
     delayMs(2000);
     t = t + 1;
+
   }
   if (t == 3 and line(0)) {
     go(50, -50);
     delayMs(1000);
     t = t + 1;
+
   }
 
   if (pitch() < -10 and line(1) and line(7)) {
@@ -38,14 +41,17 @@ void RobotLine::radionica() {
   else if (pitch()<10 and line(1) and line(7) and t == 4) {
     go(50, 50);
     delayMs(1000);
-    armOpen();
-    linija2 = 1;
+    linijia2 = 2
 
   }
   if (not lineAny() and cunj == 0) {
     linija = linija + 1;
+    if (linija == 170){
+      cunj = 1;
+    }
   }
-  if (front()<150 and front()>140 and t == 1 and linija > 100 and cunj == 0) {
+  
+  if (front()<150 and front()>140 and t == 1 and linija >= 170 and cunj == 1) {
 
     go(50, (-50));
     delayMs(800);
@@ -61,12 +67,17 @@ void RobotLine::radionica() {
     delayMs(900);
     go((50), -50);
     delayMs(800);
-    cunj = 1;
+    cunj = 2;
   }
-  if (linija2==1){
-   pratiDesniZid();
+  if (linija2==2 and not lineAny()){
+   pratiSve();
   }
-
+  if (frontLeft()<120 and linija2 == 2){
+    go(-50, 50) ;
+    delayMs(500);
+    go(50, 50);
+    delayMs(200);
+  }
   else {
     pratiLiniju();
   }
