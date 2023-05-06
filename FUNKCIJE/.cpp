@@ -20,7 +20,7 @@ RobotLine::RobotLine(char name[]) : Robot(name) {
   // 2nd, 4th, 6th, and 8th parameters are output connectors of the controller (0 - 3, meaning 1 - 4. connector). 2nd one must be connected to LB (Left-Back) motor,
   // 4th to LF (Left-Front), 6th to RF (Right-Front), and 8th to RB (Right-Back). Therefore, You can connect motors freely, but have to
   // adjust the parameters here. In this example output (connector) 3 is LB, etc.
-  motorGroup = new MotorGroupDifferential(this, mrm_mot4x3_6can, 0, mrm_mot4x3_6can, 1 , mrm_mot4x3_6can, 2, mrm_mot4x3_6can, 3);
+  motorGroup = new MotorGroupDifferential(this, mrm_mot4x3_6can, 0, mrm_mot4x3_6can, 2 , mrm_mot4x3_6can, 1, mrm_mot4x3_6can, 3);
 
   // All the actions will be defined here; the objects will be created.
   actionEvacuationZone = new ActionEvacuationZone(this);
@@ -75,8 +75,8 @@ RobotLine::RobotLine(char name[]) : Robot(name) {
   // Set buttons' actions.
   // mrm_8x8a->actionSet(actionRCJLine, 0); // Button 1 starts RCJ Line.
   // mrm_8x8a->actionSet(actionEvacuationZone, 1); // Button 2 starts robot in evacution zone.
-  mrm_8x8a->actionSet(_actionLoop, 2); // Button 3 starts user defined loop() function
-  mrm_8x8a->actionSet(actionStop, 3); // Stop the robot
+  mrm_8x8a->actionSet(_actionLoop, 3); // Button 3 starts user defined loop() function
+  mrm_8x8a->actionSet(actionStop, 2); // Stop the robot
 
   // Put Your buttons' actions here.
 
@@ -1461,12 +1461,17 @@ if(setup()){
   armOpen();
 }
 
-if(frontRight()>100){
-go(60, 40);
+if(front()<150){
+  go(-90, 90);
+  delayMs(500);
+}
+
+if(frontRight()>120){
+go(70, 50);
 
 }
 else{
-go(40, 60);
+go(50, 70);
 }
 }
 
