@@ -20,7 +20,7 @@ RobotLine::RobotLine(char name[]) : Robot(name) {
   // 2nd, 4th, 6th, and 8th parameters are output connectors of the controller (0 - 3, meaning 1 - 4. connector). 2nd one must be connected to LB (Left-Back) motor,
   // 4th to LF (Left-Front), 6th to RF (Right-Front), and 8th to RB (Right-Back). Therefore, You can connect motors freely, but have to
   // adjust the parameters here. In this example output (connector) 3 is LB, etc.
-  motorGroup = new MotorGroupDifferential(this, mrm_mot4x3_6can, 0, mrm_mot4x3_6can, 1 , mrm_mot4x3_6can, 2, mrm_mot4x3_6can, 3);
+  motorGroup = new MotorGroupDifferential(this, mrm_mot4x3_6can, 0, mrm_mot4x3_6can, 2 , mrm_mot4x3_6can, 1, mrm_mot4x3_6can, 3);
 
   // All the actions will be defined here; the objects will be created.
   actionEvacuationZone = new ActionEvacuationZone(this);
@@ -843,8 +843,12 @@ void RobotLine::lineFollow() {
     go(70, 40);
   else if (line(4))
     go(70, 70);
-  else if (millis() - ms > 100)
-    stop();
+  else if (millis() - ms > 300){
+    go(90,-90);
+    delayMs(500);
+    go(90,90);
+    delayMs(500);
+  }
   else
     go(70, 70);
   // static uint32_t lastLineFoundMs = millis(); // Used to measure gap in line.
