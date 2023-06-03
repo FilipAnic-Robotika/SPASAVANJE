@@ -3,13 +3,24 @@
 
 
 void RobotLine::radionica() {
-  if (setup()) {
-  }
+  
+    static int t=0;
+    static int h=0;
+ 
   if (line(7) and line(1)) {
-    stop();
-    delayMs(500);
     go(-90, 90);
-    delayMs(500);
+    delayMs(600);
+    go(90, 90);
+    delayMs(1000);
+    
   }
-  lineFollow();
+  if(not lineAny()){
+    t=t+1;
+  }
+  if(not lineAny() and t > 5){
+    h=h+1;
+  }  
+  else{
+    pratiLiniju();
+  }
 }
