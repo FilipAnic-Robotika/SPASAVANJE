@@ -830,9 +830,9 @@ void RobotLine::lineFollow() {
   else if (line(0))
     go(90, -90);
   else if (line(7))
-    go(0, 100);
+    go(10, 100);
   else if (line(1))
-    go(100, 0);
+    go(100, 10);
   else if (line(6))
     go(30, 80);
   else if (line(2))
@@ -844,10 +844,8 @@ void RobotLine::lineFollow() {
   else if (line(4))
     go(70, 70);
   else if (millis() - ms > 300){
-    go(90,-90);
-    delayMs(500);
-    go(90,90);
-    delayMs(500);
+    stop();
+    end();
   }
   else
     go(70, 70);
@@ -1398,10 +1396,10 @@ else if(line(0)){
   go(70,-60);
 }
 else if(line(2)){
-  go(70,0);
+  go(70,10);
 }
 else if(line(6)){
-  go(0,70);
+  go(10,70);
 }
 else if(line(5)){
   go(10,70);
@@ -1421,7 +1419,7 @@ else if(line(4)){
   go(50, 50);
 }
 else{
-  go(70, 90);
+  go(70, 70);
 }
 }
 
@@ -1433,23 +1431,23 @@ else if(line(0)){
   go(100,-100);
 }
 else if(line(2)){
-  go(100,14);
+  go(100,15);
 }
 else if(line(6)){
-  go(14,100);
+  go(15,100);
 }
 else if(line(5)){
-  go(28,100);
+  go(30,100);
 }
 else if(line(3)){
-  go(100,28);
+  go(100,30);
 }
 
 else if(line(7)){
-  go(-14,100);
+  go(-15,100);
 }
 else if(line(1)){
-  go(100,-14);
+  go(100,-15);
 }
 
 else if(line(4)){
