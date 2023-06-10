@@ -816,6 +816,7 @@ float RobotLine::lineCenter() {
 /** Follow a RCJ line.
 */
 void RobotLine::lineFollow() {
+  char simbol[10 + sizeof(char)];
   static uint32_t ms = 0;
   if (setup()) {
     ms = millis();
@@ -843,9 +844,13 @@ void RobotLine::lineFollow() {
     go(70, 40);
   else if (line(4))
     go(70, 70);
-  else if (millis() - ms > 300){
+  else if (millis() - ms > 800){
     stop();
-    end();
+    go(90, -90);
+    delayMs(1000);
+    go(90, 90);
+    delayMs(500);
+    
   }
   else
     go(70, 70);
@@ -1390,10 +1395,10 @@ bool RobotLine::wallRight() {
 
 void RobotLine::pratiLiniju(){
 if(line(8)){
-  go(-60,70);
+  go(-50,70);
 }
 else if(line(0)){
-  go(70,-60);
+  go(70,-50);
 }
 else if(line(2)){
   go(70,10);
@@ -1402,21 +1407,21 @@ else if(line(6)){
   go(10,70);
 }
 else if(line(5)){
-  go(10,70);
+  go(20,70);
 }
 else if(line(3)){
-  go(70,10);
+  go(70,20);
 }
 
 else if(line(7)){
-  go(-20,70);
+  go(-30,70);
 }
 else if(line(1)){
-  go(70,-20);
+  go(70,-30);
 }
 
 else if(line(4)){
-  go(50, 50);
+  go(70, 70);
 }
 else{
   go(70, 70);
